@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import api
+from . import api
 from sys import stderr
 
 # ------------------------------
@@ -22,8 +22,7 @@ def printTree(rmFiles, prefix=(' '*4)):
     if len(rmFiles) == 0:
         print('%s└── <Empty>' % prefix)
 
-
-if __name__ == '__main__':
+def main():
     try:
         print('Fetching file structure...\n', file=stderr)  # Prints to stderr to ignore this if piped into a text file
         files = api.fetchFileStructure()
@@ -40,3 +39,7 @@ if __name__ == '__main__':
             print(file=stderr)
             print('Please make sure your reMarkable is connected to this PC and you have enabled the USB Webinterface in "Settings -> Storage".', file=stderr)
             exit(1)
+
+
+if __name__ == '__main__':
+    main()

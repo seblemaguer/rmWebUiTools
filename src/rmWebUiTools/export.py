@@ -6,7 +6,7 @@ Info: If a file is already exported, it will get skipped by default.
 '''
 
 
-import api
+from . import api
 
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from datetime import datetime
@@ -100,7 +100,7 @@ def exportTo(files, targetFolderPath, onlyNotebooks, onlyBookmarked, updateFiles
                 print('ERROR: Failed to export "%s" to "%s"' % (exportableFile.name, path))
                 raise ex
             try:
-                local_mod_time = exportableFile.modifiedTimestamp + local_time_offset() 
+                local_mod_time = exportableFile.modifiedTimestamp + local_time_offset()
                 utime(path, (local_mod_time, local_mod_time))  # Use timestamp from the reMarkable device
             except Exception as ex:
                 print('ERROR: Failed to change timestamp for exported file "%s"' % path)
@@ -112,7 +112,7 @@ def printUsageAndExit():
     exit(1)
 
 
-if __name__ == '__main__':
+def main():
     # Disclaimer:
     print('DISCLAIMER: Please be aware that this puts the STRAIN of creating exported pdf files on YOUR REMARKABLE DEVICE rather than this computer.\n' \
           'This can lead to UNEXPECTED BEHAVIOUR when many and/or big files are being exported.\n' \
@@ -173,3 +173,7 @@ if __name__ == '__main__':
             print(file=stderr)
             print('Please make sure your reMarkable is connected to this PC and you have enabled the USB Webinterface in "Settings -> Storage".', file=stderr)
             exit(1)
+
+
+if __name__ == '__main__':
+    main()
