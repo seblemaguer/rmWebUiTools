@@ -18,7 +18,7 @@ I (and reMarkable AS too) **WON'T take any responsibility** for potential damage
 Run the following command:
 
 ```sh
-pip install git+pip install git+https://github.com/seblemaguer/rmWebUiTools.git@executables
+pip install git+https://github.com/seblemaguer/rmWebUiTools.git@executables
 ```
 
 ## Usage
