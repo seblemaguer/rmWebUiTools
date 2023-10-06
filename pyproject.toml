@@ -27,3 +27,6 @@ dependencies = [
 
 [project.scripts]
 rm_export = "rmWebUiTools.export:main"
+rm_import = "rmWebUiTools.upload:main"
+rm_stats  = "rmWebUiTools.stats:main"
+rm_tree  =  "rmWebUiTools.tree:main"

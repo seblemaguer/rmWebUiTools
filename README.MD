@@ -15,34 +15,20 @@ I (and reMarkable AS too) **WON'T take any responsibility** for potential damage
 
 ## Installation
 
-First ensure you have a recent version of [Python 3](https://www.python.org/downloads/) installed.
+Run the following command:
 
-To install all dependencies, execute this command in your terminal or command prompt:
+```sh
+pip install git+pip install git+https://github.com/seblemaguer/rmWebUiTools.git@executables
 ```
-$ pip install requests
-```
-
-Next you clone this repository (or download it as a zip file), and go into the folder using the `cd` command in your terminal or command prompt.
-
 
 ## Usage
 
-The scripts (except `api.py`) are meant to be executed with python 3.
+The repository provides the following commands:
 
-This can be done by typing `python` followed by the name of the script file.
-On unix systems, you can also execute those scripts like any other shell script.
-
-Examples:
-```
-$ python export.py --only-notebooks --update NotebookBackup
-$ ./export.py --only-notebooks --update NotebookBackup
-$ ./export.py --help
-
-$ ./tree.py
-$ ./paths.py
-$ ./stats.py
-```
-
+  - `rm_export` to copy the files from the remarkable to a local folder to specify
+  - `rm_import` to copy a local PDF/EPUB file to a given target folder on the remarkbable
+  - `rm_tree` which lists the filetree of the remarkable
+  - `rm_stats` which provides some statistics about the content of the remarkable
 
 ## Possibilities
 
@@ -59,4 +45,3 @@ If you want a certain feature, you can create an issue (= feature request) or co
 When exporting a large amount of files, it can happen that your reMarkable **enters sleep mode** during that process or **locks up and restarts** (happens on some huge pdf files).
 
 When this happens, you can just execute the same command again. It should continue where it failed with no data loss.
-
