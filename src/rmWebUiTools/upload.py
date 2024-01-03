@@ -21,8 +21,8 @@ def main():
     ap.add_argument(
         "-t",
         "--target-folder",
-        required=True,
-        help="Folder on your remarkable to put the uploaded files in",
+        default="/",
+        help="Folder on your remarkable to put the uploaded files in ('/' corresponds to the root directory)",
     )
     ap.add_argument("file", type=argparse.FileType("rb"), nargs="+")
 

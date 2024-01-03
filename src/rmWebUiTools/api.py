@@ -196,13 +196,16 @@ def changeDirectory(targetFolder):
 
     Raises a RuntimeError in case the given targetFolder cannot be found on the device or is not a folder
     '''
-    rmFile = getRmFileFor(targetFolder)
-    if rmFile is None:
-        raise RuntimeError("Folder {} could not be found on device".format(targetFolder))
-    if not rmFile.isFolder:
-        raise RuntimeError("Given path {} is not a folder on the device".format(targetFolder))
-    
-    requests.post(RM_WEB_UI_URL + "/documents/" + rmFile.id)
+    if targetFolder == "/":
+        requests.post(RM_WEB_UI_URL + "/documents")
+    else:
+        rmFile = getRmFileFor(targetFolder)
+        if rmFile is None:
+            raise RuntimeError("Folder {} could not be found on device".format(targetFolder))
+        if not rmFile.isFolder:
+            raise RuntimeError("Given path {} is not a folder on the device".format(targetFolder))
+
+        requests.post(RM_WEB_UI_URL + "/documents/" + rmFile.id)
 
 def upload(file):
     '''
